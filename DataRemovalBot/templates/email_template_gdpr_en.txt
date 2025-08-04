@@ -1,0 +1,17 @@
+Subject: Request for Erasure of Personal Data (GDPR Article 17)
+
+To the Data Protection Officer,
+
+I am writing to exercise my right to erasure under Article 17 of the General Data Protection Regulation (GDPR). I hereby request the permanent deletion of all my personal data from your systems.
+
+My personal information for identification is as follows:
+- Full Name: {full_name}
+- Email Address: {email}
+- Address: {address_de}{address_gb}{address_us}
+- Phone Number: {phone_gb}{phone_us}
+- National ID / SSN: {ssn_se}{d_number_no}
+
+Please let me know if any further information is required to identify my data. I expect you to process this request without undue delay and provide confirmation of the deletion within 30 days.
+
+Sincerely,
+{full_name}

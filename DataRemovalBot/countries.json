@@ -1,0 +1,52 @@
+{
+  "SE": {
+    "name": "Sweden",
+    "identifiers": {
+      "ssn_se": {
+        "prompt": "Enter your Swedish SSN (personnummer, YYYYMMDD-XXXX): ",
+        "validation_regex": "^(19|20)?[0-9]{6}[-+]?[0-9]{4}$"
+      }
+    }
+  },
+  "US": {
+    "name": "United States",
+    "identifiers": {
+      "address_us": {
+        "prompt": "Enter your full US address (e.g., 123 Main St, Anytown, CA 12345): "
+      },
+      "phone_us": {
+        "prompt": "Enter a US phone number (optional, press Enter to skip): ",
+        "optional": true
+      }
+    }
+  },
+  "NO": {
+    "name": "Norway",
+    "identifiers": {
+      "d_number_no": {
+        "prompt": "Enter your Norwegian D-number or Fødselsnummer (11 digits): ",
+        "validation_regex": "^[0-9]{11}$"
+      }
+    }
+  },
+  "GB": {
+    "name": "United Kingdom",
+    "identifiers": {
+      "address_gb": {
+        "prompt": "Enter your full UK address (e.g., 10 Downing Street, London, SW1A 2AA): "
+      },
+      "phone_gb": {
+        "prompt": "Enter a UK phone number (optional, press Enter to skip): ",
+        "optional": true
+      }
+    }
+  },
+  "DE": {
+    "name": "Germany",
+    "identifiers": {
+      "address_de": {
+        "prompt": "Enter your full German address (Anschrift, e.g., Willy-Brandt-Straße 1, 10557 Berlin): "
+      }
+    }
+  }
+}

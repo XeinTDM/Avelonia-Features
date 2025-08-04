@@ -1,0 +1,15 @@
+Subject: Begäran om radering av personuppgifter enligt GDPR
+
+Till den personuppgiftsansvarige,
+
+Jag skriver för att utöva min rätt till radering ("rätten att bli bortglömd") enligt Artikel 17 i Dataskyddsförordningen (GDPR). Jag begär härmed att ni permanent raderar alla mina personuppgifter från er webbplats och samtliga era databaser.
+
+Mina personuppgifter är följande:
+- Fullständigt namn: {full_name}
+- Personnummer: {ssn_se}
+- E-postadress: {email}
+
+Jag förväntar mig att ni behandlar denna begäran utan onödigt dröjsmål och skickar en bekräftelse på att mina uppgifter har raderats inom 30 dagar.
+
+Med vänliga hälsningar,
+{full_name}

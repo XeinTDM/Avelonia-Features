@@ -1,0 +1,137 @@
+======================================================
+  Data Removal Bot - Information & Instructions
+======================================================
+
+**IMPORTANT DISCLAIMER:**
+This is a free, open-source tool provided for personal use. It comes with
+ABSOLUTELY NO WARRANTY. The success of your data removal requests is NOT
+guaranteed and depends entirely on each company's internal policies and their
+interpretation of laws (e.g., GDPR, CCPA). The user is solely responsible
+for the information they provide and for their use of this program. Your personal
+data and email credentials are only used during the program's
+execution and are NEVER stored or sent anywhere else.
+
+
+WHAT THIS PROGRAM DOES
+----------------------
+This program helps automate the process of sending data removal requests to
+various public information websites across different countries. It uses your
+"right to be forgotten" under regulations like GDPR as its basis.
+
+
+HOW IT WORKS
+------------
+The script will guide you through a few steps:
+1.  **Enter Your Details:** You provide your name and then specific identifiers
+    (like a Swedish SSN) for each country you want to target.
+2.  **Enter Email Details:** You provide your email login (using a secure App
+    Password) so the script can send emails on your behalf.
+3.  **Process Targets:** The script reads the `targets.json` file and performs one
+    of three actions for each company:
+    - **Email:** Automatically sends a personalized request from your email account.
+    - **Webform:** Automatically opens Google Chrome, fills in the removal form
+      with your details. You may need to solve a CAPTCHA and click "Send".
+    - **Manual eID:** Provides you with a direct link and instructs you to complete
+      the process manually (e.g., for Swedish BankID), as it cannot be safely automated.
+
+
+======================================================
+  SETUP - What to do before you run the program
+======================================================
+
+1.  **Install Python:**
+    If you don't have it, download and install Python 3 from python.org.
+    Make sure to check the box "Add Python to PATH" during installation.
+
+2.  **Install Google Chrome:**
+    This program uses Google Chrome to fill out forms. Please ensure it is installed.
+
+3.  **Install Required Libraries:**
+    - Open your command line tool (Terminal, Command Prompt, or PowerShell).
+    - Navigate to this project folder.
+    - (Recommended) Use a virtual environment:
+      On macOS/Linux: `python3 -m venv venv` and `source venv/bin/activate`
+      On Windows:     `py -m venv venv` and `.\venv\Scripts\activate`
+    - Install dependencies: `pip install -r requirements.txt`
+      (Note: This uses Selenium's built-in driver management, so no separate
+      browser driver installation is needed as long as you have Chrome installed.)
+
+
+======================================================
+  HOW TO RUN THE PROGRAM
+======================================================
+
+1.  Open your command line tool and navigate to this project folder.
+2.  (If using a venv) Activate it.
+3.  Run the program: `python main.py`
+4.  Follow the on-screen prompts.
+
+**ADVANCED RUN OPTIONS (FILTERING):**
+You can filter which targets to run using command-line arguments.
+
+- **Filter by Country:** Run only targets for a specific country.
+  `python main.py --country SE`
+  `python main.py -c US`
+
+- **Filter by Type:** Run only targets of a specific type.
+  `python main.py --type email`
+  `python main.py -t webform`
+
+- **Filter by Name:** Run only targets whose name contains a specific string.
+  `python main.py --target-name "Eniro"`
+  `python main.py -n "whitepages"`
+
+You can combine flags: `python main.py -c SE -t email`
+
+
+======================================================
+  !!! VERY IMPORTANT: EMAIL SECURITY (GMAIL / OUTLOOK) !!!
+======================================================
+
+For security reasons, email providers like Gmail and Outlook will BLOCK login attempts
+from programs like this if you use your normal password.
+
+To make it work, you MUST generate and use an "App Password".
+
+How to get a Gmail App Password:
+--------------------------------
+1.  Go to your Google Account settings -> "Security".
+2.  Turn ON "2-Step Verification". This is mandatory.
+3.  Click on "App passwords".
+4.  Select "Mail" for the app and "Other (Custom name)" for the device.
+5.  Click "Generate". Google will give you a 16-character password.
+
+==> Use THIS 16-character password in the program. <==
+
+How to get an Outlook/Microsoft App Password:
+--------------------------------
+1. Go to your Microsoft Account settings: https://account.microsoft.com/security
+2. Click on "Advanced security options".
+3. If you don't have it enabled, turn ON "Two-step verification". This is mandatory.
+4. Scroll down to "App passwords" and click "Create a new app password".
+5. Microsoft will give you a 16-character password.
+
+==> Use THIS 16-character password in the program. <==
+
+======================================================
+  CUSTOMIZING TARGETS (ADVANCED)
+======================================================
+
+You can edit `targets.json` to add/remove companies. Each entry needs a specific structure:
+
+- **"country":** Two-letter country code (e.g., "SE", "US"). The script will ask for
+  your info for each country found.
+
+- **type: "email"**
+  Requires `contact` (email address) and `template` (the name of the template file
+  without .txt, e.g., "email_template_se").
+  `{ "name": "...", "country": "SE", "type": "email", "contact": "...", "template": "..." }`
+
+- **type: "manual_eid"**
+  For processes like BankID. Requires `url`. The `notes` field is optional but recommended.
+  `{ "name": "...", "country": "SE", "type": "manual_eid", "url": "...", "notes": "..." }`
+
+- **type: "webform"**
+  Requires `url` and `field_map`. `field_map` connects the data keys from the program
+  (e.g., "full_name", "ssn_se", "email") to the CSS selector on the webpage.
+  `{ "name": "...", "country": "SE", "type": "webform", "url": "...", "field_map": { "full_name": "#name", "ssn_se": "#pnr", "email": "#user_email" } }`

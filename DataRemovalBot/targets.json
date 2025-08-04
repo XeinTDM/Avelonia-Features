@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Birthday.se",
+    "country": "SE",
+    "type": "email",
+    "contact": "info@birthday.se",
+    "template": "email_template_se"
+  },
+  {
+    "name": "Eniro.se",
+    "country": "SE",
+    "type": "email",
+    "contact": "personuppgift@eniro.com",
+    "template": "email_template_se"
+  },
+  {
+    "name": "Hitta.se",
+    "country": "SE",
+    "type": "manual_eid",
+    "url": "https://www.hitta.se/kontakta-oss/avanm%C3%A4lan-person",
+    "notes": "Requires opening the BankID app on your phone to complete."
+  },
+  {
+    "name": "Merinfo.se",
+    "country": "SE",
+    "type": "webform",
+    "url": "https://merinfo.se/person/borttag",
+    "field_map": {
+      "full_name": "#removal_name",
+      "ssn_se": "#removal_ssn",
+      "email": "#removal_email"
+    }
+  },
+  {
+    "name": "MrKoll.se",
+    "country": "SE",
+    "type": "mrkoll_flow",
+    "url": "https://mrkoll.se/om/andra-uppgifter/",
+    "notes": "This will automate the BankID login and the click to hide your information."
+  },
+  {
+    "name": "Ratsit.se",
+    "country": "SE",
+    "type": "ratsit_flow",
+    "url": "https://www.ratsit.se/redigera/dolj/bankid",
+    "notes": "This will automate starting the BankID process. You will need to complete the login on your phone."
+  },
+  {
+    "name": "Upplysning.se",
+    "country": "SE",
+    "type": "manual_eid",
+    "url": "https://www.upplysning.se/person/radera",
+    "notes": "Requires BankID."
+  },
+  {
+    "name": "Whitepages (Example)",
+    "country": "US",
+    "type": "webform",
+    "url": "https://www.whitepages.com/suppression_requests",
+    "notes": "This is an example. US sites often require finding your profile URL first, which can't be fully automated here.",
+    "field_map": {
+      "full_name": "input#full_name",
+      "address_us": "input#address",
+      "email": "input#email"
+    }
+  },
+  {
+    "name": "192.com (UK)",
+    "country": "GB",
+    "type": "email",
+    "contact": "feedback@192.com",
+    "template": "email_template_gdpr_en"
+  },
+  {
+    "name": "UKPhoneBook.com",
+    "country": "GB",
+    "type": "webform",
+    "url": "https://www.ukphonebook.com/contact-us",
+    "notes": "Their removal form is part of their general contact page. Fill in the message field manually with your removal request text.",
+    "field_map": {
+      "full_name": "input[name='your-name']",
+      "email": "input[name='your-email']"
+    }
+  },
+  {
+    "name": "DasTelefonbuch.de (Germany)",
+    "country": "DE",
+    "type": "email",
+    "contact": "datenschutz@dastelefonbuch-marketing.de",
+    "template": "email_template_gdpr_en"
+  },
+  {
+    "name": "GoYellow.de (Germany)",
+    "country": "DE",
+    "type": "webform",
+    "url": "https://www.goyellow.de/datenschutz",
+    "notes": "You may need to find a specific contact link on their privacy page. This example prefills a generic contact form found there.",
+    "field_map": {
+      "full_name": "input[name='name']",
+      "email": "input[name='email']"
+    }
+  }
+]
